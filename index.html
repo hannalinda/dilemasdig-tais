@@ -1,106 +1,64 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dilemas Digitais — A Bolha Algorítmica</title>
-  <!-- Fonte Google: Inter -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Segurança Digital: O Perigo das Senhas Fracas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Fundo com Orbes Neon e Malha -->
-  <div class="bg-decoration">
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
-    <div class="grid-overlay"></div>
-  </div>
 
-  <div class="app-container">
-    <header class="main-header">
-      <div class="badge">
-        <i data-lucide="cpu"></i>
-        <span>Simulador de Algoritmo</span>
-      </div>
-      <h1>Dilemas Digitais</h1>
-      <p class="subtitle">Descubra como o feed invisível molda sua percepção do mundo e cria bolhas digitais.</p>
+<div class="container">
+    <header>
+        <h1>O Perigo das Senhas Fracas</h1>
+        <p>Descubra se suas credenciais estão vulneráveis a ataques em segundos</p>
     </header>
 
-    <div class="content-grid">
-      <!-- Painel Principal de Navegação / Feed -->
-      <main class="feed-section">
-        <div class="controls-card">
-          <div class="mode-toggle">
-            <button id="btn-algoritmo" class="toggle-btn active">
-              <i data-lucide="zap"></i>
-              <span>Com Algoritmo</span>
-              <small>Feed Personalizado</small>
-            </button>
-            <button id="btn-neutro" class="toggle-btn">
-              <i data-lucide="compass"></i>
-              <span>Sem Algoritmo</span>
-              <small>Feed Diversificado</small>
-            </button>
-          </div>
+    <div class="card">
+        <div class="section-title">🔒 Teste a Força da sua Senha</div>
+        <div class="tester-box">
+            <div class="input-group">
+                <input type="password" id="passwordInput" placeholder="Digite uma senha fictícia para testar...">
+            </div>
+            <div class="meter-container">
+                <div class="meter-bar" id="meterBar"></div>
+            </div>
+            <div class="feedback-text">
+                <span id="strengthText" style="color: var(--text-secondary);">Digite algo acima</span>
+                <span id="percentText"></span>
+            </div>
+            <div class="crack-time" id="crackTime"></div>
         </div>
-
-        <div id="feed" class="feed-container">
-          <!-- Os cards serão injetados dinamicamente via JS -->
-        </div>
-      </main>
-
-      <!-- Barra Lateral de Estatísticas do Modo -->
-      <aside class="stats-sidebar">
-        <div class="glass-panel">
-          <h3>
-            <i data-lucide="bar-chart-3"></i>
-            Métricas de Impacto
-          </h3>
-          <p class="panel-desc">Efeito instantâneo da bolha de filtragem no seu comportamento:</p>
-
-          <div class="metric-item">
-            <div class="metric-header">
-              <span>Nível de Nível de Retenção/Vício</span>
-              <strong id="val-vicio">92%</strong>
-            </div>
-            <div class="progress-bar">
-              <div id="bar-vicio" class="progress-fill danger" style="width: 92%;"></div>
-            </div>
-          </div>
-
-          <div class="metric-item">
-            <div class="metric-header">
-              <span>Diversidade de Opiniões</span>
-              <strong id="val-diversidade">12%</strong>
-            </div>
-            <div class="progress-bar">
-              <div id="bar-diversidade" class="progress-fill warning" style="width: 12%;"></div>
-            </div>
-          </div>
-
-          <div class="metric-item">
-            <div class="metric-header">
-              <span>Polarização / Viés de Confirmação</span>
-              <strong id="val-polarizacao">88%</strong>
-            </div>
-            <div class="progress-bar">
-              <div id="bar-polarizacao" class="progress-fill danger" style="width: 88%;"></div>
-            </div>
-          </div>
-
-          <div id="insight-box" class="insight-box">
-            <i data-lucide="alert-triangle"></i>
-            <p id="insight-text">O algoritmo está priorizando conteúdos inflamatórios para manter sua atenção retida por mais tempo.</p>
-          </div>
-        </div>
-      </aside>
     </div>
-  </div>
 
-  <script src="script.js"></script>
+    <div class="grid">
+        <div class="grid-card">
+            <h3>⚠️ Por que evitar senhas fracas?</h3>
+            <ul>
+                <li><strong>Ataques de Força Bruta:</strong> Robôs testam milhões de combinações por segundo.</li>
+                <li><strong>Reutilização Perigosa:</strong> Uma senha vazada compromete todas as suas redes.</li>
+                <li><strong>Engenharia Social:</strong> Datas e nomes de pets são facilmente descobertos.</li>
+            </ul>
+        </div>
+
+        <div class="grid-card">
+            <h3>🛡️ Como criar uma senha forte</h3>
+            <ul>
+                <li>Mínimo de 12 a 16 caracteres.</li>
+                <li>Mistura de maiúsculas, minúsculas, números e símbolos.</li>
+                <li>Prefira <strong>frases secretas</strong> com palavras aleatórias.</li>
+                <li>Utilize um <strong>Gerenciador de Senhas</strong> confiável.</li>
+                <li>Ative sempre a <strong>Autenticação de Dois Fatores (2FA)</strong>.</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <p>Conscientização sobre Segurança Cibernética &copy; 2026</p>
+    </footer>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
