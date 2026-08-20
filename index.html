@@ -3,44 +3,103 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dilemas Digitais</title>
+  <title>Dilemas Digitais — A Bolha Algorítmica</title>
+  <!-- Fonte Google: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>Dilemas Digitais</h1>
-    <p>Reflexões sobre ética, tecnologia e a nossa vida conectada.</p>
-  </header>
+  <!-- Fundo com Orbes Neon e Malha -->
+  <div class="bg-decoration">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="grid-overlay"></div>
+  </div>
 
-  <main class="container">
-    <section class="dilemmas-grid">
-      <article class="card">
-        <h2>Privacidade vs. Conveniência</h2>
-        <p>Até que ponto devemos ceder nossos dados pessoais em troca de serviços mais ágeis e personalizados?</p>
-        <button onclick="votar('privacidade')">Votar neste tema</button>
-        <span id="votes-privacidade" class="vote-count">0 votos</span>
-      </article>
+  <div class="app-container">
+    <header class="main-header">
+      <div class="badge">
+        <i data-lucide="cpu"></i>
+        <span>Simulador de Algoritmo</span>
+      </div>
+      <h1>Dilemas Digitais</h1>
+      <p class="subtitle">Descubra como o feed invisível molda sua percepção do mundo e cria bolhas digitais.</p>
+    </header>
 
-      <article class="card">
-        <h2>Inteligência Artificial no Trabalho</h2>
-        <p>A automação avança rapidamente. Como equilibrar a eficiência da IA com a preservação de empregos?</p>
-        <button onclick="votar('ia')">Votar neste tema</button>
-        <span id="votes-ia" class="vote-count">0 votos</span>
-      </article>
+    <div class="content-grid">
+      <!-- Painel Principal de Navegação / Feed -->
+      <main class="feed-section">
+        <div class="controls-card">
+          <div class="mode-toggle">
+            <button id="btn-algoritmo" class="toggle-btn active">
+              <i data-lucide="zap"></i>
+              <span>Com Algoritmo</span>
+              <small>Feed Personalizado</small>
+            </button>
+            <button id="btn-neutro" class="toggle-btn">
+              <i data-lucide="compass"></i>
+              <span>Sem Algoritmo</span>
+              <small>Feed Diversificado</small>
+            </button>
+          </div>
+        </div>
 
-      <article class="card">
-        <h2>Conectividade vs. Presença</h2>
-        <p>As redes sociais aproximam quem está longe, mas afastam quem está ao nosso lado?</p>
-        <button onclick="votar('conectividade')">Votar neste tema</button>
-        <span id="votes-conectividade" class="vote-count">0 votos</span>
-      </article>
-    </section>
+        <div id="feed" class="feed-container">
+          <!-- Os cards serão injetados dinamicamente via JS -->
+        </div>
+      </main>
 
-    <section class="interactive-section">
-      <h2>Sua Opinião</h2>
-      <p id="feedback-text">Clique nos botões acima para indicar qual dilema mais te preocupa!</p>
-    </section>
-  </main>
+      <!-- Barra Lateral de Estatísticas do Modo -->
+      <aside class="stats-sidebar">
+        <div class="glass-panel">
+          <h3>
+            <i data-lucide="bar-chart-3"></i>
+            Métricas de Impacto
+          </h3>
+          <p class="panel-desc">Efeito instantâneo da bolha de filtragem no seu comportamento:</p>
+
+          <div class="metric-item">
+            <div class="metric-header">
+              <span>Nível de Nível de Retenção/Vício</span>
+              <strong id="val-vicio">92%</strong>
+            </div>
+            <div class="progress-bar">
+              <div id="bar-vicio" class="progress-fill danger" style="width: 92%;"></div>
+            </div>
+          </div>
+
+          <div class="metric-item">
+            <div class="metric-header">
+              <span>Diversidade de Opiniões</span>
+              <strong id="val-diversidade">12%</strong>
+            </div>
+            <div class="progress-bar">
+              <div id="bar-diversidade" class="progress-fill warning" style="width: 12%;"></div>
+            </div>
+          </div>
+
+          <div class="metric-item">
+            <div class="metric-header">
+              <span>Polarização / Viés de Confirmação</span>
+              <strong id="val-polarizacao">88%</strong>
+            </div>
+            <div class="progress-bar">
+              <div id="bar-polarizacao" class="progress-fill danger" style="width: 88%;"></div>
+            </div>
+          </div>
+
+          <div id="insight-box" class="insight-box">
+            <i data-lucide="alert-triangle"></i>
+            <p id="insight-text">O algoritmo está priorizando conteúdos inflamatórios para manter sua atenção retida por mais tempo.</p>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
