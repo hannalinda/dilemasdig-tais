@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dilemas Digitais</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Dilemas Digitais</h1>
+    <p>Reflexões sobre ética, tecnologia e a nossa vida conectada.</p>
+  </header>
+
+  <main class="container">
+    <section class="dilemmas-grid">
+      <article class="card">
+        <h2>Privacidade vs. Conveniência</h2>
+        <p>Até que ponto devemos ceder nossos dados pessoais em troca de serviços mais ágeis e personalizados?</p>
+        <button onclick="votar('privacidade')">Votar neste tema</button>
+        <span id="votes-privacidade" class="vote-count">0 votos</span>
+      </article>
+
+      <article class="card">
+        <h2>Inteligência Artificial no Trabalho</h2>
+        <p>A automação avança rapidamente. Como equilibrar a eficiência da IA com a preservação de empregos?</p>
+        <button onclick="votar('ia')">Votar neste tema</button>
+        <span id="votes-ia" class="vote-count">0 votos</span>
+      </article>
+
+      <article class="card">
+        <h2>Conectividade vs. Presença</h2>
+        <p>As redes sociais aproximam quem está longe, mas afastam quem está ao nosso lado?</p>
+        <button onclick="votar('conectividade')">Votar neste tema</button>
+        <span id="votes-conectividade" class="vote-count">0 votos</span>
+      </article>
+    </section>
+
+    <section class="interactive-section">
+      <h2>Sua Opinião</h2>
+      <p id="feedback-text">Clique nos botões acima para indicar qual dilema mais te preocupa!</p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

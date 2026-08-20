@@ -1,0 +1,102 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: #0f172a;
+  color: #f8fafc;
+  line-height: 1.6;
+  padding: 2rem 1rem;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  color: #38bdf8;
+  margin-bottom: 0.5rem;
+}
+
+header p {
+  color: #94a3b8;
+  font-size: 1.1rem;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.dilemmas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.card {
+  background-color: #1e293b;
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid #334155;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card h2 {
+  font-size: 1.25rem;
+  color: #f1f5f9;
+  margin-bottom: 0.75rem;
+}
+
+.card p {
+  color: #cbd5e1;
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+}
+
+button {
+  background-color: #0284c7;
+  color: #ffffff;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: #0369a1;
+}
+
+.vote-count {
+  display: block;
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+  color: #38bdf8;
+}
+
+.interactive-section {
+  text-align: center;
+  background-color: #1e293b;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid #334155;
+}
+
+.interactive-section h2 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.interactive-section p {
+  color: #94a3b8;
+}
