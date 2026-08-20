@@ -1,155 +1,96 @@
-// Base de Dados de Posts Simulado
-const postsAlgoritmo = [
-  {
-    titulo: "Por que apenas quem pensa como você tem razão no debate atual",
-    texto: "Análise exclusiva mostra como as opiniões contrárias são infundadas. Continue consumindo este tipo de conteúdo para reforçar sua visão.",
-    tag: "Bolha do Conforto",
-    autor: "@bolha_inteligente • Patrocinado",
-    eco: true
-  },
-  {
-    titulo: "O grupo rival está prestes a tomar uma atitude drástica!",
-    texto: "Conteúdo gerado para provocar indignação imediata. Postagens com forte carga emocional geram 400% mais engajamento e compartilhamento.",
-    tag: "Ultrapolarização",
-    autor: "@noticias_urgentes",
-    eco: true
-  },
-  {
-    titulo: "Você PRECISA comprar isto agora antes que acabe",
-    texto: "Com base nos seus microdados de navegação das últimas 2 horas, identificamos a sua maior fraqueza de consumo.",
-    tag: "Hiper-Targeting",
-    autor: "@anunciante_invisivel",
-    eco: true
-  }
-];
-
-const postsNeutros = [
-  {
-    titulo: "Entenda os múltiplos pontos de vista sobre a questão global",
-    texto: "Uma cobertura equilibrada que apresenta visões divergentes sem induzir ao conflito ou sensacionalismo.",
-    tag: "Visão Plural",
-    autor: "@jornalismo_aberto",
-    eco: false
-  },
-  {
-    titulo: "Como funcionam os algoritmos de recomendação social?",
-    texto: "Aprenda sobre câmaras de eco, viés de confirmação e como retomar o controle sobre a sua dieta de informação diária.",
-    tag: "Letramento Digital",
-    autor: "@educacao_media",
-    eco: false
-  },
-  {
-    titulo: "Avanço científico traz novas perspectivas para o oceano",
-    texto: "Pesquisadores internacionais publicam estudo conjunto sobre ecossistemas marinhos sem qualquer viés político ou comercial.",
-    tag: "Ciência Aberta",
-    autor: "@ciencia_hoje",
-    eco: false
-  }
-];
-
-// Elementos da DOM
-const feedContainer = document.getElementById('feed');
-const btnAlgoritmo = document.getElementById('btn-algoritmo');
-const btnNeutro = document.getElementById('btn-neutro');
-
-// Elementos das Métricas
-const valVicio = document.getElementById('val-vicio');
-const barVicio = document.getElementById('bar-vicio');
-
-const valDiversidade = document.getElementById('val-diversidade');
-const barDiversidade = document.getElementById('bar-diversidade');
-
-const valPolarizacao = document.getElementById('val-polarizacao');
-const barPolarizacao = document.getElementById('bar-polarizacao');
-
-const insightText = document.getElementById('insight-text');
-
-// Função para renderizar os cards no Feed
-function renderizarFeed(posts) {
-  feedContainer.innerHTML = '';
-
-  posts.forEach((post, index) => {
-    const card = document.createElement('article');
-    card.className = `post-card ${post.eco ? 'echo-chamber' : 'neutral'}`;
-    card.style.animationDelay = `${index * 0.1}s`;
-
-    card.innerHTML = `
-      <div class="card-header">
-        <span class="tag-badge">${post.tag}</span>
-        <span class="author-info">${post.autor}</span>
-      </div>
-      <h3>${post.titulo}</h3>
-      <p>${post.texto}</p>
-    `;
-
-    feedContainer.appendChild(card);
-  });
-
-  // Re-inicializa os ícones do Lucide para dinamismo se necessário
-  if (window.lucide) {
-    lucide.createIcons();
-  }
-}
-
-// Função para atualizar as estatísticas laterais
-function atualizarMetricas(modoAlgoritmo) {
-  if (modoAlgoritmo) {
-    // Modo Algoritmo (Valores Altos de Vício/Polarização)
-    valVicio.textContent = '94%';
-    barVicio.style.width = '94%';
-    barVicio.className = 'progress-fill danger';
-
-    valDiversidade.textContent = '08%';
-    barDiversidade.style.width = '8%';
-    barDiversidade.className = 'progress-fill danger';
-
-    valPolarizacao.textContent = '91%';
-    barPolarizacao.style.width = '91%';
-    barPolarizacao.className = 'progress-fill danger';
-
-    insightText.textContent = 'O algoritmo está priorizando conteúdos inflamatórios e hiper-personalizados para maximizar o seu tempo de tela.';
-  } else {
-    // Modo Neutro (Valores Saudáveis)
-    valVicio.textContent = '25%';
-    barVicio.style.width = '25%';
-    barVicio.className = 'progress-fill success';
-
-    valDiversidade.textContent = '88%';
-    barDiversidade.style.width = '88%';
-    barDiversidade.className = 'progress-fill success';
-
-    valPolarizacao.textContent = '15%';
-    barPolarizacao.style.width = '15%';
-    barPolarizacao.className = 'progress-fill success';
-
-    insightText.textContent = 'Modo cronológico e diversificado ativado. Você está exposto a múltiplas perspectivas sem indução do viés de confirmação.';
-  }
-}
-
-// Event Listeners
-btnAlgoritmo.addEventListener('click', () => {
-  if (!btnAlgoritmo.classList.contains('active')) {
-    btnAlgoritmo.classList.add('active');
-    btnNeutro.classList.remove('active');
-    renderizarFeed(postsAlgoritmo);
-    atualizarMetricas(true);
-  }
-});
-
-btnNeutro.addEventListener('click', () => {
-  if (!btnNeutro.classList.contains('active')) {
-    btnNeutro.classList.add('active');
-    btnAlgoritmo.classList.remove('active');
-    renderizarFeed(postsNeutros);
-    atualizarMetricas(false);
-  }
-});
-
-// Inicialização
 document.addEventListener('DOMContentLoaded', () => {
-  renderizarFeed(postsAlgoritmo);
-  atualizarMetricas(true);
-  if (window.lucide) {
-    lucide.createIcons();
-  }
+    const passwordInput = document.getElementById('passwordInput');
+    const meterBar = document.getElementById('meterBar');
+    const strengthText = document.getElementById('strengthText');
+    const percentText = document.getElementById('percentText');
+    const crackTime = document.getElementById('crackTime');
+
+    passwordInput.addEventListener('input', () => {
+        const password = passwordInput.value;
+        if (!password) {
+            resetMeter();
+            return;
+        }
+
+        const result = evaluatePassword(password);
+        updateUI(result);
+    });
+
+    function resetMeter() {
+        meterBar.style.width = '0%';
+        meterBar.style.backgroundColor = 'transparent';
+        strengthText.textContent = 'Digite algo acima';
+        strengthText.style.color = 'var(--text-secondary, #666)';
+        percentText.textContent = '';
+        crackTime.textContent = '';
+    }
+
+    function evaluatePassword(pwd) {
+        let score = 0;
+        let poolSize = 0;
+
+        // Critérios de complexidade
+        if (/[a-z]/.test(pwd)) poolSize += 26;
+        if (/[A-Z]/.test(pwd)) poolSize += 26;
+        if (/[0-9]/.test(pwd)) poolSize += 10;
+        if (/[^a-zA-Z0-9]/.test(pwd)) poolSize += 32;
+
+        // Pontuação base por comprimento
+        score += pwd.length * 4;
+
+        // Bônus por combinação de caracteres
+        if (/[a-z]/.test(pwd) && /[A-Z]/.test(pwd)) score += 10;
+        if (/[0-9]/.test(pwd) && (/[a-z]/.test(pwd) || /[A-Z]/.test(pwd))) score += 10;
+        if (/[^a-zA-Z0-9]/.test(pwd)) score += 15;
+
+        // Penalidades por padrões simples
+        if (/^([a-zA-Z0-9])\1+$/.test(pwd)) score -= 20; // Caracteres repetidos
+        if (pwd.length < 8) score = Math.min(score, 25);
+
+        const percentage = Math.min(Math.max(score, 5), 100);
+        const timeToCrack = estimateCrackTime(pwd.length, poolSize);
+
+        return { percentage, timeToCrack };
+    }
+
+    function estimateCrackTime(length, pool) {
+        if (length === 0 || pool === 0) return 'Instantâneo';
+        
+        // Simulação de ~10 bilhões de tentativas por segundo (ataque de força bruta offline)
+        const combinations = Math.pow(pool, length);
+        const seconds = combinations / 10000000000;
+
+        if (seconds < 1) return 'Tempo para quebrar: Instantâneo';
+        if (seconds < 60) return `Tempo para quebrar: ~${Math.round(seconds)} segundos`;
+        if (seconds < 3600) return `Tempo para quebrar: ~${Math.round(seconds / 60)} minutos`;
+        if (seconds < 86400) return `Tempo para quebrar: ~${Math.round(seconds / 3600)} horas`;
+        if (seconds < 31536000) return `Tempo para quebrar: ~${Math.round(seconds / 86400)} dias`;
+        if (seconds < 3153600000) return `Tempo para quebrar: ~${Math.round(seconds / 31536000)} anos`;
+        
+        return 'Tempo para quebrar: Séculos';
+    }
+
+    function updateUI({ percentage, timeToCrack }) {
+        meterBar.style.width = `${percentage}%`;
+        percentText.textContent = `${percentage}%`;
+        crackTime.textContent = timeToCrack;
+
+        if (percentage < 35) {
+            meterBar.style.backgroundColor = '#e74c3c'; // Vermelho (Fraca)
+            strengthText.textContent = 'Senha Muito Fraca';
+            strengthText.style.color = '#e74c3c';
+        } else if (percentage < 60) {
+            meterBar.style.backgroundColor = '#f39c12'; // Laranja (Média)
+            strengthText.textContent = 'Senha Moderada';
+            strengthText.style.color = '#f39c12';
+        } else if (percentage < 85) {
+            meterBar.style.backgroundColor = '#2ecc71'; // Verde (Forte)
+            strengthText.textContent = 'Senha Forte';
+            strengthText.style.color = '#2ecc71';
+        } else {
+            meterBar.style.backgroundColor = '#27ae60'; // Verde Escuro (Muito Forte)
+            strengthText.textContent = 'Excelente Senha!';
+            strengthText.style.color = '#27ae60';
+        }
+    }
 });
